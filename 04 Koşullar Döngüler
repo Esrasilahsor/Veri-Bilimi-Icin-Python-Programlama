@@ -1,0 +1,197 @@
+			04 Koşullar Döngüler
+
+
+	if : 
+
+Kontrol ettiği koşul doğru ise çalışır.
+
+def number_check(number):
+	if number == 10:
+		print("number is 10")
+		
+number_check(10)
+
+
+	else: 
+
+Kontrol ettiği koşul yanlış ise çalışır.
+
+def number_check(number):
+	if number == 10:
+		print("number is 10")
+	else:
+		print ("number is not 10")
+
+number_check(12)
+
+
+
+	elif: 
+
+Kontrol etmwk istenilen yapı ikiden fazlaysa kullanılır.
+
+def sayikontrol(sayi):
+	if sayi<10:
+		print("sayi 10'dan küçüktür")
+		
+	elif sayi>10:
+		print("sayi 10'dan büyüktür")
+		
+	else:
+		print("sayi 10'a eşittir")
+		
+sayikontrol(1)
+
+
+
+	
+	for Döngüsü: 
+
+liste=[1,2,3,4,5,6]
+
+for list in liste:
+	print(list)
+
+
+liste=[1000,2000,3000,4000,5000,6000]
+
+def zam_hesaplayici(liste,zam):
+	return liste*zam/100 + liste
+
+for list in liste:
+	print(zam_hesaplayici(list,20))
+
+
+
+	Uygulama :
+
+def alternating(string):
+	new_string = ""
+	for string_index in range(len(string)):
+		if string_index  %2 == 0:
+			new_string+= string[string_index].upper()
+		else:
+			new_string += string[string_index].lower()
+			
+	print(new_string)
+
+alternating("hi my name is jhon i am learning python")
+
+
+
+	break: 
+
+İlgili kod bloğunu çalıştırmayı durur demektir.
+
+maas=[1000,2000,3000,4000,5000]
+
+for salary in maas:
+	if salary ==3000:
+		break
+	print(salary)
+
+
+
+	continue: 
+
+İlgili kod bloğunu pas geç demektir. 
+
+maas=[1000,2000,3000,4000,5000]
+
+for salary in maas:
+	if salary ==3000:
+		continue
+	print(salary)
+
+
+	while: 
+
+İçerisine yazılan sorgunun cevabı True olduğu sürece çalışır. 
+
+number=1
+while number <5:
+	print(number)
+	number+=1
+
+
+	Enumarate: 
+
+Bir iteratif nesne içerisinde gezip elemanlarına bir işlem yaparken aynı zamanda o elemanların index bilgilerini de takip etmek istediğimizde kullanılır.
+
+students=["a","b","c","d"]
+for index, student in enumerate(students):
+	print(index, student)
+
+0 a
+1 b
+2 c
+3 d
+
+def alternating(string):
+	new_string = ""
+	for i, string in enumerate(string):
+		if i % 2 == 0:
+			new_string += string.upper()
+		else:
+			new_string += string.lower()
+
+	print(new_string)
+
+
+alternating("hi my name is jhon i am learning python")
+
+Bu işlem enumarate kullanarak daha kolay bir şekilde yapılabilir. 
+
+
+	zip:
+
+Birbirinden farklı olan listeleri bir arada değerlendirme imkanı sunar.
+
+sayilar=[1,2,3,4,5]
+
+harfler=["a","b","c","d","e"]
+
+isimler=["akfkfk","bhshsh","chfhfj","dkglglg","edhhhs"]
+
+
+[(1, 'a', 'akfkfk'),
+ (2, 'b', 'bhshsh'),
+ (3, 'c', 'chfhfj'),
+ (4, 'd', 'dkglglg'),
+ (5, 'e', 'edhhhs')]
+
+
+
+ 	lambda:
+
+ Bir fonksiyon tanımlama şeklidir. def'den farkı kullan at fonksiyon olmasıdır. map ya da apply ile kullanıldığında daha anlamlıdır. 
+
+
+fonk=lambda a,b:a+b
+fonk(8,9)
+
+
+	map:
+
+Döngü yazmaktdan kurtulmak için kullanılır.
+
+
+sayilar=[1,2,3,4,5]
+
+def sayi_arttir(sayi):
+	return sayi+10
+
+list(map(sayi_arttir, sayilar))
+
+
+[11, 12, 13, 14, 15]
+
+
+	lambda ile map ilişkisi:
+
+map içerisinde kullanılması gereken fonksiyonu o an için tanımlayıp daha sonra kullanmamaya dayalı bir sistem için fonksiyonu lambda şeklinde tanımlarız. 
+
+sayilar=[100,200,300,400,500]
+list(map(lambda x: x*20/100 + x, sayilar))
+
+ [120.0, 240.0, 360.0, 480.0, 600.0]

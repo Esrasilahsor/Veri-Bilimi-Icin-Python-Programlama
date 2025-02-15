@@ -1,0 +1,152 @@
+			02 Veri Yapılarına Giriş 
+
+
+Sayılar = integer, float, double, complex
+
+Karakter Dizileri= string, boolean
+
+Liste(List): x= [1,2,3] y= ["a", "b"]
+
+Sözlük(Dictionary): x= {"name": "Peter", "age": 36}
+
+Tuple(Demet): x=("a","b","c")
+
+Set: x{"a","b","c"}
+
+Not: Liste, tuple, set ve dictionary veri yapıları aynı zamanda Python Collections (Arrays) olarak geçmektedir. 
+
+	İnteger:
+
+sayi ** sayi üs alır.
+
+int() Parantez içerisindeki sayıyı integer'a çevirir. print içerisine aynı şekilde yazılabilir.
+
+	String: 
+
+"" ile '' arasında bir fark yoktur.
+
+""" """ Üç tane çift veya tek tırnak arasına yazılanları çok satırlı karakter dizisi olarak tanımlanır. 
+
+name[0] index seçimi ile girdiğimiz string değeri harflerine ayırır. 
+
+Karakter Dizilerinde Slice İşlemi: name[0:2] ikinci indise kadarki harfleri döndürür. İkinci indis değerindeki harfi almaz.
+
+String İçerisinde Karakter Sorgulama: "arananDeğer" in değişkenAdı şeklinde arama yapılır. Bulunup bulunmamasına göre True veya False değeri döndürür. Büyük küçük harflere dikkat eder. Örneğin isim = esra silahşor ->  "esra" in isim  -> True
+
+	String Metodları: 
+
+dir(değişkenTürü) komutuyla parantez içerisine girilen değişkenin metodlarını görebiliriz. 
+
+len(): Stringlerde boyut bilgisine erişebilmek için kullanılır. len(name) şeklinde kullanılır, buradaki name değişken adıdır. len("girilen cümle") şeklinde de boyut bilgisine ulaşılabilir. 
+
+upper(): Girilen ifadeyi tamamı büyük harf olacak şekilde düzenler. name = "esra" name.upper()  ->  ESRA   şeklinde çalışır. 
+
+lower():  Girilen ifadeyi tamamı küçük harf olacak şekilde düzenler. name = "ESRA" name.upper()  ->   esra  şeklinde çalışır. 
+
+replace: Karakter değiştirmek için kullanılır.  name.replace(değişiklik, değiştirilmek istenen kelime veya harf) şeklinde kullanılır. name="string bir ifade"  ->  'strpng bpr pfade'
+
+split(): Bölme işlemi için kullanılır. 
+
+strip(): Kırpma işlemi için kullanılır. name.strip() şeklinde kullanılırsa boşluklara göre kırpar. Parantez içerisine bir argüman yazılırsa ona göre kırpar. "string bir ifade".strip("s") gibi.
+
+capitalize(): İlk harfi büyütür. name = "string" name.capitalize()  ->  'String'
+
+
+	Liste: 
+
+Sıralıdır. Index işlemleri yapılabilir. 
+Değiştirilebilir.
+Kapsayıcıdır. Yani içerisinde birden fazla değişken türü tutabilir. names=[1,2,3,4,"a","b","c",True,False]
+
+Liste içerisindeki bir listeden elemana erişmek istersek  name=[1,2,3,"a","b",[4,5,6,7]]     name[5][3]  ->  7
+
+slice şeklinde de elemanlara erişim sağlanabilir. name=[1,2,3,"a","b",[4,5,6,7]]  name[0:4]  ->   [1,2,3,"a"]
+
+
+	Liste Metodları:
+
+dir(değişkenTürü) komutuyla parantez içerisine girilen değişkenin metodlarını görebiliriz.
+
+append(): Liste içine eleman eklemek için kullanılır. notes= [1,2,3,4]  notes.append(10)  ->  [1, 2, 3, 4, 10]
+
+pop(): İndexe göre eleman silmek için kullanılır. Sildiği değeri döndürür. notes= [1,2,3,4]   notes.pop(0)  ->  1
+
+insert(index, EklenecekDeğer): İndexe göre listeye ekleme yapar. notes= [1,2,3,4]  notes.insert(2,16)  ->  [1,2,16,3,4]
+
+
+	Sözlük (Dictionary)
+
+Değiştirilebilir.
+Sırasız(3.7'den sonra sıralı)
+Kapsayıcıdır yani içerisinde birden fazla değişken türü tutabilir. 
+key-value şeklinde çalışır.
+
+dictionary={"anahtar": "değer",
+			"elma":"armut",
+			"a": [1,3,4]}
+
+Sözlük içerisindeki listedeki elemanlara indis değeri ile ulaşılır. dictionary["a"][1]  şeklinde çağırılır.
+
+Key Sorgulama: "ArananDeğer in SözlükAdı" şeklinde kullanılır. "elma" in dictionary gibi. Aranan değerin bulunup bulunmamasına göre True veya False şeklinde bool bir değer döndürür.
+
+
+Key'e Göre Value'ye Erişmek: dictionary["elma"] veya dictionary.get("elma") gibi 2 şekilde çağırılabilir. Buradaki dictionary sözlüğe verdiğimiz değişken ismidir. Başka herhangi bir isim de verilebilir.
+
+
+Value Değiştirmek: dictionary["elma"] = ["kivi"]
+
+dictionary.keys() komutu sözlük içerisindeki tüm anahtar değerlere erişim sağlar.
+
+Tüm Çiftleri Tuple Halinde Listeye Çevirme: dictionary.items() şeklinde yapılır. 
+
+Sözlük İçerisine Yeni Bir Key-Value Çifti EKleme: dictionary.update({key:value}) şeklinde eklenir. Eğer eklenmek istenen key değeri mevcut ise value değeri değiştirilir eğer mevcut değilse yeni anahtar değer çifti sözlüğün en sona eklenir.
+
+
+	Demet(Tuple):
+
+Değiştirilemez.
+Sıralıdır.
+Kapsayıcıdır.
+
+t=(1,2,"a") şeklinde oluşturulur. 
+
+Eğer tuple'da değişiklik yapmak istersek tuple'ı listeye çevirip sonrasında tekrar tuple tipine çevirerek değişiklik yapabiliriz. 
+
+t= (1,2,"a") 
+t= list(t)
+t[0] = 99
+t = tuple(t)
+
+
+	Set:
+
+Değiştirilebilir.
+Sırasız + Eşsizdir.
+Kapsayıcıdır.
+
+Hız gerektiren ve küme işlemlerinde kullanılır. Kesişim ve birleşim gibi.
+
+Set Oluşturma: set fonksiyonu veya süslü parantezler ile oluşturulabilir.
+
+set1 = set([1,2,3]) -> set içerisinde liste var.
+set2([1,3,5])
+
+difference(): İki kümenin farkı set1.difference(set2)  -> 2  Yani set1'de olup set2'de olmayan değer demektir. 
+
+- ifadesi ile de iki kümenin farkı getirilebilir. set1 - set2
+
+symmetric_difference(): İki kümede de birbirinde olmayanları döndürür. set1.symmetric_difference(set2)  ->  {2,5}
+
+
+intersection(): Kesişim demektir. İki setin kesişimini bulur. set1.intersection(set2)  ->  {1,3}
+
+& ifadesiyle de iki kümenin kesişimi getirilebilir. set1 & set2
+
+
+union(): İki kümenin birleşimi demektir. set1.union(set2)  ->  {1,2,3,4}
+
+isdisjoint(): İki kümenin kesişimi boş mu? True False döndürür. set1.isdisjoint(set2)   ->   False
+
+issubset(): Bir küme diğerinin alt kümesi mi?  set1.issubset(set2)   ->   False
+
+issuperset(): Bir küme diğer kümeyi kapsıyor mu?  set1.issuperset(set2)  ->  False

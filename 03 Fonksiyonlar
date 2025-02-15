@@ -1,0 +1,125 @@
+			03 Fonksiyonlar
+
+
+print("a","b", sep="__")  ->  a__b
+
+help(fonksiyonAdı) komutu ile fonskiyonun görevi hakkında bilgi edinlebilir. 
+
+Fonksiyon Tanımlama: def komutu ile fonkisyon tanımlanır. 
+
+def FoksiyonAdı(parametre):   ->  def hesapla(x):
+
+def hesapla(x):
+	print("Sonuc:",x*9)
+
+hesapla(10)  ->  Sonuc: 90
+
+İki Argümanlı/Parametreli Fonksiyon Tanımlama
+
+def summer(arg1,arg2):
+	sonuc=arg1+arg2
+	print(sonuc)
+
+summer(50,64)
+
+
+	Docstring
+
+Fonskiyonlara herkesin anlayableceği ortak bir dil ile bilgi not ekleme yoludur.
+
+ Numpy Tarzında Not Ekleme: 
+
+def summer(arg1,arg2):
+
+ """ 
+Sum of two numbers
+
+ Parameters/Args
+ ----------
+ arg1: int, float
+
+ arg2: int,float
+
+ Returns
+ -------
+
+
+ """
+print(arg1+arg2)
+
+
+	Fonksiyonların Statement/Body Bölümü
+
+Girilen Değeri Liste İçerisinde Saklayacak Fonksiyon: 
+
+list_store = []
+
+def add_element(a,b):
+	c=a*b
+	list_store.append(c)
+	print(list_store)
+
+
+	Ön Tanımlı Parametreler (Default Arguments)
+
+def yazdir(string="merhaba"):
+	print(string)
+	
+yazdir("hello")
+yazdir()
+
+Çıktı  ->  hello
+		   merhaba
+
+
+
+	Return
+
+Fonksiyon çıktılarını girdi olarak kullanmak için kullanılır.
+
+def calculate(varm, moisture, charge):
+	varm = varm*2
+	moisture = moisture * 2
+	charge = charge * 2
+	output = (varm+moisture)/charge
+	return varm, moisture, charge, output  // return int(varm, moisture, charge, output) şeklinde yazılırsa döndürülen değerler integer'a çevirilir. 
+
+calculate(13,25,3)
+
+
+
+	Fonksiyon İçerisinde Fonksiyon Çağırma
+
+def calculate(varm, moisture, charge):
+	return (varm+moisture)/charge
+
+
+def standardization(a, p):
+	return a*10/100*p*p
+
+def all_calculate(varm, moisture, charge, p):
+	a= calculate(varm, moisture, charge)
+	b= standardization(a,p)
+	print(b*10)
+
+all_calculate(32,10,6,2)
+
+
+	Lokal ve Global Değişkenler
+
+I. Global Scope: Global etki alanında olan bir değişkendir ve programın herhangi bir bölümünden erişilebilir.
+
+II.Local Scope: Bir değişkenin veya fonksiyonun local etki alan tanımlandığı yerde veya daha özel bir kapsam içinde erişilebilir olduğu alandır.
+
+
+list_store = []
+
+def add_element(a,b):
+	c=a*b
+	list_store.append(c)
+	print(list_store)
+
+add_element(1,9)
+
+Buradaki c değişkeni sadece fonksiyon içerisinde kullanıldığı için lokal değişkendir. 
+

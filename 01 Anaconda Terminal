@@ -1,0 +1,37 @@
+			01 Anaconda Terminal
+
+
+	Terminal Komutları: 
+
+
+Sanal Ortam oluşturma: conda create -n isim
+
+Sanal Ortamı Aktif Etme: conda activate isim
+
+Sanal Ortamların Listelenmesi: conda env list
+
+Yüklü Paketlerin Listelenmesi: conda list
+
+Paket Yükleme: conda install Paketİsmi 
+Not: conda install paketİsmi paketİsmi komutu ile birden fazla paket aynı anda yüklenebilir. 
+
+Belirli Bir Versiyona Göre Paket Yükleme: conda install paketİsmi = versiyonNumarası
+conda install numpy=1.20.1 
+
+Paket Yükseltme: conda upgrade paketismi komutu paketi son sürümüne yükseltir.
+
+Tüm Paketlerin Yükseltilmesi: conda upgrade -all
+
+pip: pypi paket yönetim aracı
+
+Paket Yükleme: pip install paketİsmi
+
+Versiyona Göre Paket Yükleme: pip install paketAdı = versiyonNumarası komutu eğer paket mevcutsa, eski paketi silip yerine istediğimiz versiyonunu yükler.
+
+ls listeleme komutu
+
+Başka Bir Çalışma Ortamına Sanal Ortamı Aktarma: conda env export > isim.yaml  (.yml olarak da görülebilir)
+
+remove silme komutu
+
+Var Olan Sanal Ortamı Oluşturmak: conda env create -f isim.yaml 
