@@ -1,0 +1,42 @@
+			09 Pandas Kütüphanesi
+
+
+import pandas as pd şeklinde import edilir. 
+
+Pandas bir çok farklı tipteki veriyi kolay bir şekilde okuma imkanı sağlar. İçerisinde bulunan metotlar aracılığıyla csv, txt, excel ya da diğeri bazı özel dosya formatlarını okuyabilir ve üzerinde çalışabilir.
+
+
+	Pandas Serileri:
+
+Tek boyutlu ve indeks bilgisi barındıran bir veri tipidir. Pandas serisinde indeks bilgisi bir iç özelliktir. Genelde zamana bağlı seriler olduğu için bu şekilde bir indeks bilgisi vardır.
+
+
+import pandas as pd
+
+s=pd.Series([10,77,12,4,5])
+print(s)
+type(s)
+
+
+0    10
+1    77
+2    12
+3     4
+4     5
+dtype: int64
+
+
+s.index: İndeks bilgisine erişmek için kullanılır.
+
+s.dtype: İçerisindeki verinin tip bilgisini verir.
+
+s.size: İçerisinde bulunan eleman sayısına erişmek için kullanılır.
+
+s.ndim: Boyut bilgisine erişmek için kullanılır.
+
+s.vaules: İçindeki değerlere erişmek için kullanılır. Numpy array olarak döner. 
+
+s.head(): İçerisindeki baştan girilen değere kadarki değerleri getirmek anlamına gelir. s.head(3) -> 0,1,2 indeksler ve bu indekslere karşılık gelen değerleri döndürür.
+
+s.tail(): İçerisindeki sondan girilen değer sayısınca indeks değerlerini getirmek anlamına gelir. 
+s.tail(3) -> 4,3,2 indisler ve bu indislerdeki değerler

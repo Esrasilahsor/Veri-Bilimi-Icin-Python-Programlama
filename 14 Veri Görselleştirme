@@ -1,0 +1,138 @@
+			14 Veri Görselleştirme
+
+
+Kategorik Değişken: Sütun grafik ile görselleştirilir. countplot bar
+
+Sayısal Değişken: Histogram, Boxplot
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+pd.set_option("display.max.columns",None)
+pd.set_option("display.width",500)
+
+df=sns.load_dataset("titanic")
+df.head()
+
+df["sex".value_counts().plot(kind="bar")]
+plt.show
+
+
+	Histogram Grafiği:
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+pd.set_option("display.max.columns",None)
+pd.set_option("display.width",500)
+
+df=sns.load_dataset("titanic")
+df.head()
+
+plt.hist(df["age"])
+plt.show()
+
+
+	Kutu Grafik:
+
+Kutu grafiğin bir özelliği veri setindeki aykırı değerleri, çeyreklik değerler üzerinden yakalayabilmesidir. Bu bir ön işleme konusudur.
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+pd.set_option("display.max.columns",None)
+pd.set_option("display.width",500)
+
+df=sns.load_dataset("titanic")
+df.head()
+
+plt.boxplot(df["fare"])
+plt.show()
+
+
+	Marker:
+
+y = np.array([13,28,11,100])
+plt.plot(y, marker="*")
+plt.show()
+
+markers = ["o","*",".",","x","X","+","P","s","D","d","p","H","h"]
+
+
+	Line:
+
+y = np.array([13,28,11,100])
+plt.plot(y, linestyle="dashdot",color="r")
+plt.show()
+
+
+	Multiple Lines:
+
+x = np.array([23,18,31,10])
+y = np.array([13,28,11,100])
+plt.plot(x)
+plt.plot(y)
+plt.show()
+
+
+	Başlık:
+
+plt.title("Ana Başlık")
+
+
+	X Ekseni İsimlendirme:
+
+plt.xlabel("X ekseni isimlendirme")
+plt.grid()
+plt.show()
+
+
+
+	Y Ekseni İsimlendirme:
+
+plt.ylabel("X ekseni isimlendirme")
+plt.grid()
+plt.show()
+
+
+	Subplots:
+
+x = np.array([23,18,31,10,23,54,98,16])
+y = np.array([13,28,11,100,200,54,68,48])
+plt.subplot(1,2,1)
+plt.title("1")
+plt.plot(x,y)
+
+x = np.array([23,18,31,10,23,54,98,16])
+y = np.array([13,28,11,100,200,54,68,48])
+plt.subplot(1,2,2)
+plt.title("2")
+plt.plot(x,y)
+
+# 1 satırlık 2 sütunluk 2 tane grafik oluşturma
+
+
+	Seaborn:
+
+Daha az çabayla grafikler oluşturmak için kullanılır.
+
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+df = sns.load_dataset("tips")
+df.head()
+
+df["sex"].value_counts()
+sns.countplot(x=df["sex"],data=df)
+plt.show()
+
+
+	Sayısal Değişken Görselleştirme:
+
+sns.boxplot(x=df["total_bill"])
+plt.show()
+
+df["total_bill"].hist()
+plt.show()

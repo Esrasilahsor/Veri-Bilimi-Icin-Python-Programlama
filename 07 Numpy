@@ -1,0 +1,70 @@
+			07 Numpy
+
+
+Numerical Python ifadesinin kısaltılmış halidir. Bilimsel hesaplamalar için kullanılır. Python'da matematik ve istatistik denilince akla gelen ilk kütüphanelerden birisidir. Python dünyasını programlamadan veri analitiği dünyasına açan kütüphanedir.
+
+Verimli veri saklama ve yüksek seviye işlemler yapabilmesi ile listelerden ayırılır. Numpy sabit bir tipte veri tutar.
+
+Döngü yazmaya gerek duymaz.
+
+import numpy as np
+
+a=np.array([2,5,9,4])
+b=np.array([3,6,1,9])
+print(a*b)
+
+[ 6 30  9 36]
+
+
+	Numpy Array'i Oluşturma:
+
+np.zeros(10,dtype=int) # 0'lardan olşan array
+sonuc = np.random.randint(0,10,size=10) # Random array
+print(sonuc)
+np.random.normal(10,4,(3,4)) # Ortalaması 10, standart sapması 4 olacak şekilde 3 satır ve 4 sütündan oluşan array
+
+np.arange(0,30,3) # 0'dan başla 30'a kadar 3'er adımlarla array oluştur
+
+gibi şekillerde array oluşturulabilir. Yaygın kullanımda sıfırdan numpy oluşturup kullanılmaz. Var olan veriler üzerinden hareket edilir.
+
+
+	Numpy Array Özellikleri:
+
+
+ndim: boyut sayısı (satir sütıu sayısı)
+
+shape: boyut bilgisi (satır, sütun)
+
+size: toplam eleman sayısı
+
+dtype: array veri tipi
+
+
+	Reshaping:
+
+
+e=np.random.randint(3,16,size=9).reshape(3,3) şeklinde array'e boyut ayarlaması yapılabilir. Array uzunluğu ve boyut ayarlaması düzgün yapılmalıdır. Örneğin array uzunluğu 10 ise (3,3) gibi bir boyutlandırma yapamayız.
+
+
+
+	İndeks Seçimi:
+	
+
+import numpy as np
+a=np.random.randint(10,size=(3,5))
+print(a)
+a[:,3] #Tüm satırların 3. indisteki elemanı
+a[0,:] # 0 indexli satırın tüm sütunlarını seç
+a[0:2,0:3] # 0. satırdan 2. satıra kadar al, 0. sutündan 3. sutüna kadar seç
+
+
+	Fancy İndex:
+
+Birden fazla indeksteki elemanlara aynı aynda erişmek istersek, indekslerin yazılı olduğu bir liste ile bunu kolayca yapabiliriz.
+
+import numpy as np
+v=np.arange(0,30,3)
+liste=[0,1,2,6]
+v[liste]
+
+array([ 0,  3,  6, 18])

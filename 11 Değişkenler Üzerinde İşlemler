@@ -1,0 +1,48 @@
+			11 Değişkenler Üzerinde İşlemler
+
+
+"age" in df  # bu değişken verisetinde var mı? sorusunu sorar. True veya False değer döndürür.
+
+df.age.head()
+df["age"].head()  # İki şekilde de değişken seçme işlemi yapılabilir. head() metodu konsolda okumamıza yardımcı olur.
+
+df[["age"]].head()  # iki tane köşeli parantez kullandığımızda veri yapımız bozulmaz ve dataframe olmaya deveam eder.
+
+df[["age","alive","adult_male"]]  # şeklinde birden fazla değişken seçilebilir.
+
+df["age2"]=df["age"]**2  # şeklinde yeni bir değişken oluşturulabilir.
+
+df["age3"] = df["age2"]/df["age"]  # şeklinde matematiksel işlemlerde de ekleme yapılabilir.
+
+Not: drop metoduna bir liste vererek çoklu silme işlemi yapabiliriz.
+
+df.loc[: ~df.columns.str.contains("age")].head()  #  age içermeyenleri sil demek
+
+
+
+	Loc & Iloc:
+
+
+Iloc, numpy'dan listelerden alışık olduğumuz klasik int tabanlı index bilgisi vererek seçim yapma işlemlerini ifade eder. 
+
+Loc ise label'lara göre seçim yapar.
+
+df.iloc[,]  # virgülden öncesi satırlar, sonrası sütunları ifade etmektedir.
+
+df.iloc[0:3]  # 0,1,2 indeks değerlerini döndürür.
+
+df.loc[0:3]  # 0,1,2,3 indeks değerlerini döndürür.
+
+df.iloc[0:3,0:3]  # hem satır hem de sütunda işlem yapar.
+
+df.loc[0:3, "age"]  # hem satır hem de sütunda işlem yapar. "age" değişkeninin bilgilerini getirir. 
+
+col_names= ["age","alive","adult_male"]
+df.loc[0:3,col_names]
+
+
+df[df["age"]>50].head  # yaşı 50 den büyük olanları yazdıran kod
+
+df.loc[df["age"]>50,["class","age"]].head()  # iki veya daha fazla değişken seçebiliriz.
+
+df.loc[(df["age"]>50) & (df["alive"]==1),["class","age"]].head()  # 2 tane koşul gireceksek parantez içerisine almak zorundayız yoksa hata verir.

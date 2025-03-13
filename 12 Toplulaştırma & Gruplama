@@ -1,0 +1,47 @@
+			12 Toplulaştırma & Gruplama
+
+
+Toplulaştırma, bir veri yapısının içerisinde bulunan değerleri toplu bir şekilde ifade etmek demektir. Özet istatistikler bunun için güzel bir örnektir. 
+
+İlk değer, son değer, ortalama alma gibi ifadelere toplulaştırma fonksiyonları denir.
+
+Toplulaştırma ve gruplama işlemleri hep bir arada olur.
+
+mean() fonksiyonu ortalama alır.
+
+Gruplama işlemi df.groupby() komutu ile yapılır. 
+
+sonuc = df.groupby("sex")["age"].mean() # Cinsiyete göre grupla ve ortalamasını al
+print(sonuc) 
+
+sonuc = df.groupby("sex").agg({"age": ["mean","sum"]}) # Cinsiyete göre grupla ve ortalaması ile toplamını bul
+print(sonuc)
+
+
+sonuc = df.groupby(["sex","embark_town"]).agg({"age": "mean",
+                               "survived": "mean"}) # Cinsiyet ve Kalkış şehrine göre sınıfla, yaş ortalama ve heyatta kalma ortalamalarını hesapla
+
+sonuc = df.groupby(["sex","embark_town","class"]).agg({"age": ["mean","sum"],
+                               "survived": "mean"})
+
+
+
+    Pivot Table:
+
+pd.pivot_table(kesişimde_görülmek_istenen_eleman, indekste_yani_satırda_görülmek_istenen_eleman, sütunda_görülmek_istenen_eleman )
+
+Kesişimde görülmek istenen elemanın öntanımlı olarak ortalamasını alır. Bunu değiştirmek için; 
+
+pd.pivot_table(kesişimde_görülmek_istenen_eleman, indekste_yani_satırda_görülmek_istenen_eleman, sütunda_görülmek_istenen_eleman, aggfunc="fonksiyon_ismi")
+
+komutu kullanılabilir.
+
+Not: pd.cut() ve pd.qcut() sayısal verileri kategorik verilere çevirmede kullanılan en önemli iki ayrı fonksiyondur.
+
+ELimizdeki sayısal değişkeni, bölmek istediğimiz elemanların cinsini tanımlıyorsak cut fonksiyonu, tanımlayamıyorsak qcut fonksiyonu kullanılır.
+
+df["new_age"] = pd.cut(df.cut["age"],[0,10,18,25,40,90])
+
+df.pivot_table("survived","sex","new_age")
+
+Not: pd.set_option("display.width, 500") kodu terminalde verileri yan yana yazılmış bir şekilde gösterir.

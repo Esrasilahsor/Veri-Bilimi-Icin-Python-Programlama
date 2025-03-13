@@ -1,0 +1,50 @@
+			10 Veri Okuma
+
+
+df = pd.read_csv("Okunacak dosyanın yolu")
+df.head()  # şeklinde csv dosyalarını okuyabiliriz. 
+
+
+	Seaborn Kütüphanesi:
+
+Bazı veri setlerini bir çalışma ortamı oluşturmak için bünyesinde barındırır.
+
+import seaborn as sns # şeklinde import edilir.
+
+df= sns.load_dataset("titanic")
+df.head   # yaygın kullanılan titanic veri setini okur.
+
+df.shape  # veri setinin kaç satır ve sütundan oluşutuğunun bilgisini verir. (891, 15)
+
+df.info()  # Veri seti hakkında bilgi verir.
+
+df.columns  # değişkenlerin isimlerini verir.
+
+df.index  # Veri setinin index bilgisilerini verir.
+
+df[0:13]  # 0'dan 13' e kadar git demektir.
+
+df.describe().T  # Elimizdeki bir dataframe'in hızlı bir şekilde özet istatistiklerine erişmek istersek bu metodu kullanırız. T, transpozesini alarak daha okunabilir olmasını sağlar.
+
+df.isnull().values.any()  # Veri setindeki değerleride herhangi bir eksiklik var mı? True veya False döndürür.
+
+df.isnull().sum()  # veri setinde kaç tane eksik değer olduğunu hesaplar.
+
+Not: Bir dataframe'den değişken seçmek isteiğimizde df.["değiskenAdi"] komutunu kullanırız.
+
+df["age"].value_counts()  # Bir değişken değerinden kaç tane olduğu bilgisini öğreniriz.
+
+df.drop(0, axis=0)  # satırlardan 0. indisteki değeri sil demektir. (axis=0 satır, axis=1 sütun)
+
+delete_indexes=[1,3,5,7]
+df.drop(delete_indexes, axis =0)  # şeklinde belirtilen bir listedeki index değerleri de silinebilir.
+
+df.drop(delete_indexes, axis =0, inplace = True)  # inplace, bu değişikliği kalıcı olarak yap demektir. Yaptığımız değişiklik kalıcı olarak kaydedilir.
+
+Not: inplace, bir çok metot ile kullanılabilir.
+
+df.index = df["age"]  # elimizdeki değişkeni indekse çevirmek için kullanılır.
+
+df["age"] = df.index  # bir indexi değişkene çevirmek. Var olmayan bir değişken ismi kullanılması gerekmektedir.
+
+df.reset_index()  # İndexte var olan değişkeni silip yeni bir sütun olarak ekler. Yerine yeni index değeri(0,1,2...) getirir.
